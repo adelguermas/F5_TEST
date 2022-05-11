@@ -1,0 +1,29 @@
+---
+- name: create the virtual-server, pool, node members
+  hosts: all
+  connection: local
+  
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+      
+  tasks:
+    
+    - name: create vip
+      bigip_virtual_server:
+       provider: "{{ f5_provider }}"
+       description: adel-VCC1-443
+       name: adel-VCC1-443
+       destination: 201.2.2.20
+       pool: adel-VCC1-443-pool
+       port: 443
+       snat: automap
+       profiles:
+         - http
+         - clientssl
+       state: present
+    
