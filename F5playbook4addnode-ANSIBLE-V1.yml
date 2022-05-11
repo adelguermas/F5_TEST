@@ -70,8 +70,8 @@
       name: "vcc-35.eu"
   - name: CREATE NODES
     bigip_node:
-     provider: "{{f5_provider}}"
-     host: "6.6.6.36" 
+      provider: "{{f5_provider}}"
+      host: "6.6.6.36" 
       name: "vcc-36.eu"
   - name: CREATE NODES
     bigip_node:
