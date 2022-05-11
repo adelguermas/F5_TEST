@@ -1,0 +1,38 @@
+---
+- name:  create  node
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+    - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 443-vcc1 pool"
+       lb_method: ratio-member
+       name: adel-VCC1-443-pool
+       slow_ramp_time: 120
+       state: present
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC1-443-pool
+       port: 443
+      with_items:
+       - host: 6.6.6.30
+         name: vcc-30.eu
+       - host: 6.6.6.31
+         name: vcc-31.eu
+       - host: 6.6.6.32
+         name: vcc-32.eu
+       - host: 6.6.6.33
+         name: vcc-33.eu
