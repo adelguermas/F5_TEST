@@ -11,9 +11,11 @@
       validate_certs: no
       server_port: 443
   tasks:
-   - bigip_partition:
-     name: VCC1
-     provider:
-         password: "networkjourney"
-         user: "admin"
+   - name: create partition
+     bigip_partition:
+        provider:"{{f5_provider}}"
+        name: VCC1
+        password: "networkjourney"
+        user: "admin"
+ 
   
