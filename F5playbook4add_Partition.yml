@@ -1,0 +1,19 @@
+---
+- name:  create  partition 
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+   - bigip_partition:
+     name: VCC1
+     provider:
+         password: "networkjourney"
+         user: "admin"
+  
