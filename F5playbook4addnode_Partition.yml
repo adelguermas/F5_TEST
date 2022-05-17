@@ -26,13 +26,13 @@
     bigip_node:
       provider: "{{f5_provider}}"
       partition: VCC1
-     host: "6.6.6.38" 
+      host: "6.6.6.38" 
       name: "vcc-38.eu"
   - name: CREATE NODES
     bigip_node:
       provider: "{{f5_provider}}"
       partition: VCC1
-     host: "6.6.6.39" 
+      host: "6.6.6.39" 
       name: "vcc-39.eu"
   
       
