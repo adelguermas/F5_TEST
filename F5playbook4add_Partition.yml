@@ -1,8 +1,7 @@
 ---
-- name:  create  partition 
-  hosts: all
+- name:  create  node
+  hosts: F5LTM
   connection: local
-
   vars:
     f5_provider:
       password: "networkjourney"
@@ -11,11 +10,8 @@
       validate_certs: no
       server_port: 443
   tasks:
-   - name: create partition
-     bigip_partition:
-        provider:"{{f5_provider}}"
-        name: VCC1
-        password: "networkjourney"
-        user: "admin"
- 
+  - name: Create partition "VCC1" using the default route domain
+    bigip_partition:
+      name: VCC1
+      provider: "{{f5_provider}}"
   
