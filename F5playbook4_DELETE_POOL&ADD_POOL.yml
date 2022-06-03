@@ -1,0 +1,29 @@
+---
+- name:  create  node at VCC4
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Delete pool
+    bigip_pool:
+     state: absent
+     name: adel-VCC3-8080-pool
+     partition: "VCC4"
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 8080-vcc4 pool"
+      partition: "VCC4"
+      lb_method: ratio-member
+      name: adel-VCC4-8080-pool
+      slow_ramp_time: 120
+      state: present
