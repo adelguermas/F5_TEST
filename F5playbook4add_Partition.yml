@@ -22,5 +22,8 @@
     bigip_partition:
       name: VCC4
       provider: "{{f5_provider}}"
-     
+   - name: Create partition "VCC3" using the default route domain
+    bigip_partition:
+      name: VCC3
+      provider: "{{f5_provider}}"
   
