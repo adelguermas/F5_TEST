@@ -14,4 +14,8 @@
     bigip_partition:
       name: VCC1
       provider: "{{f5_provider}}"
+      name: VCC2
+      provider: "{{f5_provider}}"
+      name: VCC3
+      provider: "{{f5_provider}}"
   
