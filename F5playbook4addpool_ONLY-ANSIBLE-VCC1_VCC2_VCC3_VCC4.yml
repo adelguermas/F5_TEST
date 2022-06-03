@@ -1,0 +1,49 @@
+---
+- name:  create  pool
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+    - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 443-vcc1 pool"
+       partition: "VCC1"
+       lb_method: ratio-member
+       name: adel-VCC1-443-pool
+       slow_ramp_time: 120
+       state: present
+   - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 8443-vcc2 pool"
+       partition: "VCC2"
+       lb_method: ratio-member
+       name: adel-VCC2-8443-pool
+       slow_ramp_time: 120
+       state: present
+   - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 80-vcc3 pool"
+       partition: "VCC3"
+       lb_method: ratio-member
+       name: adel-VCC3-80-pool
+       slow_ramp_time: 120
+       state: present
+   - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 8080-vcc4 pool"
+       partition: "VCC4"
+       lb_method: ratio-member
+       name: adel-VCC3-8080-pool
+       slow_ramp_time: 120
+       state: present
