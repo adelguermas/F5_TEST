@@ -1,0 +1,73 @@
+---
+- name:  create  Pool 
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+    - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 443-vcc1 pool"
+       partition: "VCC1"
+       lb_method: ratio-member
+       name: adel-VCC1-443-pool
+       slow_ramp_time: 120
+       state: present
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC1-443-pool
+       port: 443
+      with_items:
+       - host: 6.6.6.25
+         name: vcc-25.eu
+       - host: 6.6.6.26
+         name: vcc-26.eu
+       - host: 6.6.6.27
+         name: vcc-27.eu
+       - host: 6.6.6.28
+         name: vcc-28.eu
+       - host: 6.6.6.29
+         name: vcc-29.eu
+       - host: 6.6.6.30
+         name: vcc-30.eu
+    - name: create a pool
+      bigip_pool:
+       provider: "{{ f5_provider }}"
+       description: "this is 443-VCC2 pool"
+       partition: "VCC2"
+       lb_method: ratio-member
+       name: adel-VCC2-443-pool
+       slow_ramp_time: 120
+       state: present
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC2-443-pool
+       port: 443
+      with_items:
+       - host: 5.5.5.25
+         name: vcc-25.eu
+       - host: 5.5.5.26
+         name: vcc-26.eu
+       - host: 5.5.5.27
+         name: vcc-27.eu
+       - host: 5.5.5.28
+         name: vcc-28.eu
+       - host: 5.5.5.29
+         name: vcc-29.eu
+       - host: 5.5.5.30
+         name: vcc-30.eu
