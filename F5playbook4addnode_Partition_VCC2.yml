@@ -1,0 +1,141 @@
+---
+- name:  create  node at VCC2
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: CREATE NODES at VCC2
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.25" 
+      name: "vcc-25.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.26" 
+      name: "vcc-26.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.27" 
+      name: "vcc-27.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.28" 
+      name: "vcc-28.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.29" 
+      name: "vcc-29.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.30" 
+      name: "vcc-30.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.31" 
+      name: "vcc-31.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.32" 
+      name: "vcc-32.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.33" 
+      name: "vcc-33.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.34" 
+      name: "vcc-34.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.35" 
+      name: "vcc-35.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.36" 
+      name: "vcc-36.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.37" 
+      name: "vcc-37.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.38" 
+      name: "vcc-38.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.39" 
+      name: "vcc-39.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.40" 
+      name: "vcc-40.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.41" 
+      name: "vcc-41.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.42" 
+      name: "vcc-42.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.43" 
+      name: "vcc-43.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.44" 
+      name: "vcc-44.eu"
+      partition: "VCC2"
+  - name: CREATE NODES
+    bigip_node:
+      provider: "{{f5_provider}}"
+      host: "5.5.5.45" 
+      name: "vcc-45.eu"
+      partition: "VCC2"
