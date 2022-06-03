@@ -12,7 +12,15 @@
   tasks:
   - name: Create partition "VCC1" using the default route domain
     bigip_partition:
-      name: VCC1, VCC2 , VCC4
+      name: VCC1
+      provider: "{{f5_provider}}"
+  - name: Create partition "VCC2" using the default route domain
+    bigip_partition:
+      name: VCC2
+      provider: "{{f5_provider}}"
+  - name: Create partition "VCC4" using the default route domain
+    bigip_partition:
+      name: VCC4
       provider: "{{f5_provider}}"
      
   
