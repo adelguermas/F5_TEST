@@ -20,7 +20,7 @@
        name: adel-VCC1-443-pool
        slow_ramp_time: 120
        state: present
-   - name: create a pool
+    - name: create a pool
       bigip_pool:
        provider: "{{ f5_provider }}"
        description: "this is 8443-vcc2 pool"
@@ -29,7 +29,7 @@
        name: adel-VCC2-8443-pool
        slow_ramp_time: 120
        state: present
-   - name: create a pool
+    - name: create a pool
       bigip_pool:
        provider: "{{ f5_provider }}"
        description: "this is 80-vcc3 pool"
@@ -38,7 +38,7 @@
        name: adel-VCC3-80-pool
        slow_ramp_time: 120
        state: present
-   - name: create a pool
+    - name: create a pool
       bigip_pool:
        provider: "{{ f5_provider }}"
        description: "this is 8080-vcc4 pool"
