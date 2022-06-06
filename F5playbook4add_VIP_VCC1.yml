@@ -1,0 +1,33 @@
+---
+- name:  create  node at VCC4
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC1
+     name: VCC1-443-VIP
+     destination: 6.6.6.240
+     port: 443
+     pool: adel-VCC1-443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - fix
+        - name: clientssl
+          context: server-side
+        - name: ilx
+          context: client-side   
