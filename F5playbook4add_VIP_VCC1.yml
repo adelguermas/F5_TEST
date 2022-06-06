@@ -1,5 +1,5 @@
 ---
-- name:  create  node at VCC4
+- name:  create  node at VCC1
   hosts: all
   connection: local
 
