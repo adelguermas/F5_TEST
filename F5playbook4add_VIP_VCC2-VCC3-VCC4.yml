@@ -1,0 +1,57 @@
+---
+- name:  create  node at VCC2 & VCC3 & VCC4
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC2
+     name: VCC2-8443-VIP
+     destination: 5.5.5.240
+     port: 8443
+     pool: adel-VCC2-8443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC3
+     name: VCC3-80-VIP
+     destination: 4.4.4.240
+     port: 8443
+     pool: adel-VCC3-80-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC4
+     name: VCC4-8080-VIP
+     destination: 3.3.3.240
+     port: 8443
+     pool: adel-VCC4-8080-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl 
