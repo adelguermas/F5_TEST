@@ -26,8 +26,4 @@
      description: Test Virtual Server
      profiles:
         - http
-        - fix
-        - name: clientssl
-          context: server-side
-        - name: ilx
-          context: client-side   
+        - clientssl 
