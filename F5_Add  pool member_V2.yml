@@ -1,0 +1,104 @@
+
+
+---
+- name:  Add  pool member
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       partition: "VCC1"
+       pool: adel-VCC1-443-pool
+       port: 443
+      with_items:
+       - host: 6.6.6.31
+         name: vcc-31.eu
+       - host: 6.6.6.32
+         name: vcc-32.eu
+       - host: 6.6.6.33
+         name: vcc-33.eu
+       - host: 6.6.6.34
+         name: vcc-34.eu
+       - host: 6.6.6.35
+         name: vcc-35.eu
+       - host: 6.6.6.36
+         name: vcc-36.eu
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       partition: "VCC2"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC2-8443-pool
+       port: 443
+      with_items:
+       - host: 5.5.5.31
+         name: vcc-31.eu
+       - host: 5.5.5.32
+         name: vcc-32.eu
+       - host: 5.5.5.33
+         name: vcc-33.eu
+       - host: 5.5.5.34
+         name: vcc-34.eu
+       - host: 5.5.5.35
+         name: vcc-35.eu
+       - host: 5.5.5.36
+         name: vcc-36.eu
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       partition: "VCC3"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC3-80-pool
+       port: 443
+      with_items:
+       - host: 4.4.4.31
+         name: vcc-31.eu
+       - host: 4.4.4.32
+         name: vcc-32.eu
+       - host: 4.4.4.33
+         name: vcc-33.eu
+       - host: 4.4.4.34
+         name: vcc-34.eu
+       - host: 4.4.4.35
+         name: vcc-35.eu
+       - host: 4.4.4.36
+         name: vcc-36.eu
+    - name: add members to the above created pool
+      bigip_pool_member:
+       provider: "{{ f5_provider }}"
+       description: "webserver {{ item.name }}"
+       partition: "VCC4"
+       host: "{{ item.host }}"
+       name: "{{ item.name }}"
+       pool: adel-VCC4-8080-pool
+       port: 443
+      with_items:
+       - host: 3.3.3.31
+         name: vcc-31.eu
+       - host: 3.3.3.32
+         name: vcc-32.eu
+       - host: 3.3.3.33
+         name: vcc-33.eu
+       - host: 3.3.3.34
+         name: vcc-34.eu
+       - host: 3.3.3.35
+         name: vcc-35.eu
+       - host: 3.3.3.36
+         name: vcc-36.eu
+      
