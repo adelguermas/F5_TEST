@@ -13,17 +13,21 @@
   tasks:
   - name: Create VLAN-3099
     bigip_vlan:
-     name: 3099
+     name: VLAN_3099_F5_SYNCH
+     tag: 3099
      provider: "{{ f5_provider }}"
   - name: Create VLAN-501
     bigip_vlan:
-     name: 501
+     name: VLAN_501_EDGE
+     tag: 501
      provider: "{{ f5_provider }}"
   - name: Create VLAN-717
     bigip_vlan:
-     name: 717
+     name: 	VLAN_717_NICE_WFO_FREND
+     tag: 717
      provider: "{{ f5_provider }}"
   - name: Create VLAN-718
     bigip_vlan:
-     name: 718
+     name: VLAN_718_PROD_VCC
+     tag: 718
      provider: "{{ f5_provider }}"   
