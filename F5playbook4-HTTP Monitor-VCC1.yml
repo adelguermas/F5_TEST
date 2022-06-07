@@ -14,7 +14,7 @@
   - name: Create HTTP Monitor
     bigip_monitor_http:
      state: present
-     ip: 10.10.10.10
      name: VCC1_http_monitor
      provider: "{{ f5_provider }}"
      partition: VCC1
+     
