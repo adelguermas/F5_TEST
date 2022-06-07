@@ -16,26 +16,26 @@
      address: 10.10.10.10
      name: VCC-01A-VLAN3099-SELF-IP
      netmask: 255.255.255.0
-     vlan: 3099
+     vlan: VLAN_3099_F5_SYNCH
      provider: "{{ f5_provider }}"
   - name: Create Self IP
     bigip_selfip:
      address: 20.20.20.20
      name: VCC-01A-VLAN501-SELF-IP
      netmask: 255.255.255.0
-     vlan: 501
+     vlan: VLAN_501_EDGE
      provider: "{{ f5_provider }}"
   - name: Create Self IP
     bigip_selfip:
      address: 30.30.30.30
      name: VCC-01B-VLAN717-SELF-IP
      netmask: 255.255.255.0
-     vlan: 717
+     vlan: VLAN_717_NICE_WFO_FREND
      provider: "{{ f5_provider }}"
   - name: Create Self IP
     bigip_selfip:
      address: 40.40.40.40
      name: VCC-01B-VLAN717-SELF-IP
      netmask: 255.255.255.0
-     vlan: 718
+     vlan: VLAN_718_PROD_VCC
      provider: "{{ f5_provider }}"
