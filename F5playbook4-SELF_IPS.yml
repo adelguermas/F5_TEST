@@ -35,7 +35,7 @@
   - name: Create Self IP
     bigip_selfip:
      address: 40.40.40.40
-     name: VCC-01B-VLAN717-SELF-IP
+     name: VCC-01B-VLAN718-SELF-IP
      netmask: 255.255.255.0
      vlan: VLAN_718_PROD_VCC
      provider: "{{ f5_provider }}"
