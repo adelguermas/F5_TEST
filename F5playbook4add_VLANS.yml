@@ -1,0 +1,29 @@
+---
+- name:  Create VLANS
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+  - name: Create VLAN-3099
+    bigip_vlan:
+     name: 3099
+     provider: "{{ f5_provider }}"
+  - name: Create VLAN-501
+    bigip_vlan:
+     name: 501
+     provider: "{{ f5_provider }}"
+  - name: Create VLAN-717
+    bigip_vlan:
+     name: 717
+     provider: "{{ f5_provider }}"
+  - name: Create VLAN-718
+    bigip_vlan:
+     name: 718
+     provider: "{{ f5_provider }}"   
