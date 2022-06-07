@@ -1,0 +1,46 @@
+---
+- name:  Create SNAT_POOL
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  tasks:
+  - name: Create  SNAT pool 'VCC1-snat-pool'
+    bigip_snat_pool:
+     name: VCC1-snat-pool
+     state: present
+     partition: VCC1
+     members:
+      - 6.6.6.241 
+      - 6.6.6.242
+  - name: Create  SNAT pool 'VCC2-snat-pool'
+    bigip_snat_pool:
+     name: VCC2-snat-pool
+     state: present
+     partition: VCC2
+     members:
+      - 5.5.5.241
+      - 5.5.5.242
+  - name: Create  SNAT pool 'VCC3-snat-pool'
+    bigip_snat_pool:
+     name: VCC3-snat-pool
+     state: present
+     partition: VCC3
+     members:
+      - 4.4.4.241
+      - 4.4.4.242
+  - name: Create  SNAT pool 'VCC4-snat-pool'
+    bigip_snat_pool:
+     name: VCC4-snat-pool
+     state: present
+     partition: VCC4
+     members:
+      - 3.3.3.241
+      - 3.3.3.242
