@@ -60,28 +60,3 @@
      name: VCC4_https_monitor
      provider: "{{ f5_provider }}"
      partition: VCC4
-     
-  - name: Create FTP Monitor_VCC1
-    bigip_monitor_ftp:
-     state: present
-     name: VCC1_ftp_monitor
-     provider: "{{ f5_provider }}"
-     partition: VCC1
-  - name: Create FTP Monitor_VCC2
-    bigip_monitor_ftp:
-     state: present
-     name: VCC2_ftp_monitor
-     provider: "{{ f5_provider }}"
-     partition: VCC2
-  - name: Create FTP Monitor_VCC3
-    bigip_monitor_ftp:
-     state: present
-     name: VCC3_ftp_monitor
-     provider: "{{ f5_provider }}"
-     partition: VCC3
-  - name: Create FTP Monitor_VCC4
-    bigip_monitor_ftp:
-     state: present
-     name: VCC4_ftp_monitor
-     provider: "{{ f5_provider }}"
-     partition: VCC4
