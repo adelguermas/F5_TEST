@@ -1,0 +1,20 @@
+---
+- name:  Create HTTP Monitor-VCC1
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+  - name: Create HTTP Monitor
+    bigip_monitor_http:
+     state: present
+     ip: 10.10.10.10
+     name: VCC1_http_monitor
+     provider: "{{ f5_provider }}"
+     partition: VCC1
