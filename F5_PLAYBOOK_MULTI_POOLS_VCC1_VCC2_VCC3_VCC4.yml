@@ -84,7 +84,7 @@
        partition: "VCC2"
        host: "{{ item.host }}"
        name: "{{ item.name }}"
-       pool: adel1-VCC2-8443-1-pool
+       pool: adel1-VCC2-8443-pool
        port: 8443
       with_items:
        - host: 5.5.5.25
