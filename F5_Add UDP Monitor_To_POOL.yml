@@ -1,0 +1,20 @@
+---
+- name:  Add UDP Monitor
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  tasks:
+  - name: Create UDP Monitor
+    bigip_monitor_udp:
+     state: present
+     partition: VCC1
+     pool: adel-VCC1-443-pool
+     name: my_udp_monitor
+     provider: "{{ f5_provider }}"
