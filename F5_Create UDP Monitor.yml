@@ -14,6 +14,6 @@
   - name: Create UDP Monitor
     bigip_monitor_udp:
      state: present
-     partition: common
+     partition: Common
      name: my_udp_monitor
      provider: "{{ f5_provider }}"
