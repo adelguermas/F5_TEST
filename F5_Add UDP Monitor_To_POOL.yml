@@ -11,10 +11,12 @@
       validate_certs: no
       server_port: 443
   tasks:
-  - name: Create UDP Monitor
-    bigip_monitor_udp:
+  - name: Add UDP Monitor
+    bigip_pool:
      state: present
+     name: adel-VCC1-443-pool 
      partition: VCC1
-     pool: adel-VCC1-443-pool
-     name: my_udp_monitor
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
      provider: "{{ f5_provider }}"
