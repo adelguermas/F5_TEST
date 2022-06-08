@@ -20,7 +20,7 @@
        partition: "VCC1"
        pool: adel-VCC1-443-pool
        port: 443
-       state: Enable 
+       state: enabled
       with_items:
        - host: 6.6.6.31
          name: vcc-31.eu
@@ -43,7 +43,7 @@
        name: "{{ item.name }}"
        pool: adel-VCC2-8443-pool
        port: 443
-       state: Enable 
+       state: enabled 
       with_items:
        - host: 5.5.5.31
          name: vcc-31.eu
@@ -66,7 +66,7 @@
        name: "{{ item.name }}"
        pool: adel-VCC3-80-pool
        port: 443
-       state: Enable
+       state: enabled
       with_items:
        - host: 4.4.4.31
          name: vcc-31.eu
@@ -89,7 +89,7 @@
        name: "{{ item.name }}"
        pool: adel-VCC4-8080-pool
        port: 443
-       state: Enable
+       state: enabled
       with_items:
        - host: 3.3.3.31
          name: vcc-31.eu
