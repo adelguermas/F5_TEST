@@ -1,0 +1,111 @@
+---
+- name:  create  node at VCC1-4
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 8443-vcc1 pool"
+      partition: VCC1
+      lb_method: round robin
+      pool: adel1-VCC1-8443-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 3306-vcc1 pool"
+      partition: VCC1
+      lb_method: round robin
+      pool: adel2-VCC1-3306-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 2202-vcc1 pool"
+      partition: VCC1
+      lb_method: round robin
+      pool: adel3-VCC1-2202-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 8443-vcc2 pool"
+      partition: VCC2
+      lb_method: round robin
+      pool: adel1-VCC2-8443-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 3306-vcc2 pool"
+      partition: VCC2
+      lb_method: round robin
+      pool: adel2-VCC2-3306-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 2202-vcc2 pool"
+      partition: VCC2
+      lb_method: round robin
+      pool: adel3-VCC2-2202-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 8443-vcc3 pool"
+      partition: VCC3
+      lb_method: round robin
+      pool: adel1-VCC3-8443-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 3306-vcc3 pool"
+      partition: VCC3
+      lb_method: round robin
+      pool: adel2-VCC3-3306-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 2202-vcc3 pool"
+      partition: VCC3
+      lb_method: round robin
+      pool: adel3-VCC3-2202-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 8443-vcc4 pool"
+      partition: VCC4
+      lb_method: round robin
+      pool: adel1-VCC4-8443-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 3306-vcc4 pool"
+      partition: VCC4
+      lb_method: round robin
+      pool: adel2-VCC4-3306-pool
+      state: present
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is 2202-vcc4 pool"
+      partition: VCC4
+      lb_method: round robin
+      pool: adel3-VCC4-2202-pool
+      state: present
