@@ -260,7 +260,7 @@
        partition: "VCC4"
        host: "{{ item.host }}"
        name: "{{ item.name }}"
-       pool: ade2-VCC4-3306-pool
+       pool: adel2-VCC4-3306-pool
        port: 3306
       with_items:
        - host: 3.3.3.25
