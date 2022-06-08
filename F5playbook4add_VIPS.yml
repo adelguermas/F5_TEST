@@ -1,0 +1,186 @@
+
+
+---
+- name:  create  node at VCC1
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "networkjourney"
+      user: "admin"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC1
+     name: VCC1-8443-VIP
+     destination: 6.6.6.230
+     port: 8443
+     pool: adel1-VCC1-8443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC1
+     name: VCC1-3306-VIP
+     destination: 6.6.6.231
+     port: 3306
+     pool: adel2-VCC1-3306-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC1
+     name: VCC1-2202-VIP
+     destination: 6.6.6.232
+     port: 2202
+     pool: adel3-VCC1-2202-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC2
+     name: VCC2-8443-VIP
+     destination: 5.5.5.230
+     port: 8443
+     pool: adel1-VCC2-8443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC2
+     name: VCC2-443-VIP
+     destination: 5.5.5.231
+     port: 3306
+     pool: adel2-VCC2-3306-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC2
+     name: VCC2-443-VIP
+     destination: 5.5.5.232
+     port: 2202
+     pool: adel3-VCC2-2202-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC3
+     name: VCC3-8443-VIP
+     destination: 4.4.4.230
+     port: 8443
+     pool: adel1-VCC3-8443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC3
+     name: VCC3-443-VIP
+     destination: 4.4.4.231
+     port: 3306
+     pool: adel2-VCC3-3306-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC3
+     name: VCC3-443-VIP
+     destination: 4.4.4.232
+     port: 2202
+     pool: adel3-VCC3-2202-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC4
+     name: VCC4-8443-VIP
+     destination: 3.3.3.230
+     port: 8443
+     pool: adel1-VCC4-8443-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC4
+     name: VCC4-443-VIP
+     destination: 3.3.3.231
+     port: 3306
+     pool: adel2-VCC4-3306-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+  - name: Add virtual server
+    bigip_virtual_server:
+     provider: "{{ f5_provider }}"
+     state: present
+     partition: VCC4
+     name: VCC4-443-VIP
+     destination: 3.3.3.232
+     port: 2202
+     pool: adel3-VCC4-2202-pool
+     snat: Automap
+     description: Test Virtual Server
+     profiles:
+        - http
+        - clientssl
+           
