@@ -20,3 +20,138 @@
      monitors:
       - my_udp_monitor
      provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel1-VCC1-8443-pool
+     partition: VCC1
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel2-VCC1-3306-pool 
+     partition: VCC1
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel3-VCC1-2202-pool
+     partition: VCC1
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel-VCC2-443-pool 
+     partition: VCC2
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel1-VCC2-8443-pool
+     partition: VCC2
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel2-VCC2-3306-pool 
+     partition: VCC2
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel3-VCC2-2202-pool
+     partition: VCC2
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel-VCC3-443-pool 
+     partition: VCC3
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel1-VCC3-8443-pool
+     partition: VCC3
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel2-VCC3-3306-pool 
+     partition: VCC3
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel3-VCC3-2202-pool
+     partition: VCC3
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel-VCC4-443-pool 
+     partition: VCC4
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel1-VCC4-8443-pool
+     partition: VCC4
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel2-VCC4-3306-pool 
+     partition: VCC4
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Add UDP Monitor
+    bigip_pool:
+     state: present
+     name: adel3-VCC4-2202-pool
+     partition: VCC4
+     monitor_type: and_list
+     monitors:
+      - my_udp_monitor
+     provider: "{{ f5_provider }}"
