@@ -91,7 +91,7 @@
      state: present
      partition: VCC2
      name: VCC2-2202-VIP
-     destination: 5.5.5.232
+     destination: 5.5.5.235
      port: 2202
      pool: adel3-VCC2-2202-pool
      snat: Automap
