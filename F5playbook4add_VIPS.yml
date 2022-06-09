@@ -76,7 +76,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC2
-     name: VCC2-443-VIP
+     name: VCC2-3306-VIP
      destination: 5.5.5.231
      port: 3306
      pool: adel2-VCC2-3306-pool
@@ -90,7 +90,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC2
-     name: VCC2-443-VIP
+     name: VCC2-2202-VIP
      destination: 5.5.5.232
      port: 2202
      pool: adel3-VCC2-2202-pool
@@ -118,7 +118,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC3
-     name: VCC3-443-VIP
+     name: VCC3-3306-VIP
      destination: 4.4.4.231
      port: 3306
      pool: adel2-VCC3-3306-pool
@@ -132,7 +132,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC3
-     name: VCC3-443-VIP
+     name: VCC3-2202-VIP
      destination: 4.4.4.232
      port: 2202
      pool: adel3-VCC3-2202-pool
@@ -160,7 +160,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC4
-     name: VCC4-443-VIP
+     name: VCC4-3306-VIP
      destination: 3.3.3.231
      port: 3306
      pool: adel2-VCC4-3306-pool
@@ -174,7 +174,7 @@
      provider: "{{ f5_provider }}"
      state: present
      partition: VCC4
-     name: VCC4-443-VIP
+     name: VCC4-2202-VIP
      destination: 3.3.3.232
      port: 2202
      pool: adel3-VCC4-2202-pool
