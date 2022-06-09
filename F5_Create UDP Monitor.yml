@@ -17,3 +17,21 @@
      partition: VCC1
      name: my_udp_monitor
      provider: "{{ f5_provider }}"
+  - name: Create UDP Monitor
+    bigip_monitor_udp:
+     state: present
+     partition: VCC2
+     name: my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Create UDP Monitor
+    bigip_monitor_udp:
+     state: present
+     partition: VCC3
+     name: my_udp_monitor
+     provider: "{{ f5_provider }}"
+  - name: Create UDP Monitor
+    bigip_monitor_udp:
+     state: present
+     partition: VCC4
+     name: my_udp_monitor
+     provider: "{{ f5_provider }}"
