@@ -1,0 +1,33 @@
+---
+- name:  disable   nodes  at VCC-WEB_INFRASTRUCTURE
+  hosts: SCL-VCC1
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "f2XXihS93dq44Kaaf8YENkncr~/"
+      user: "svc_netmon" 
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Disable pool member
+    bigip_pool:
+     state: forced_offline
+     pool: defaultV10AuthPool
+     partition: "VCC-WEB-INFRASTRUCTURE"
+     provider: "{{ f5_provider }}"
+	 host: "{{ item.host }}"
+     with_items:
+      - host : 10.7.94.222
+      - host : 10.7.94.223
+	  - host : 10.7.94.224
+	  - host : 10.7.94.225
+	  - host : 10.7.94.226
+	  - host : 10.7.94.227
+	  - host : 10.7.94.228
+	  - host : 10.7.94.229
+	  - host : 10.7.94.230
+	  - host : 10.7.94.231
