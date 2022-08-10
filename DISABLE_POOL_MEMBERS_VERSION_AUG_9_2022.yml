@@ -11,15 +11,20 @@
       validate_certs: no
       server_port: 443
   
-  
   tasks:
-  - name: Disable pool member
-    bigip_pool:
-     state: forced_offline
-     pool: adel1-common-8443-pool
-     partition: "common"
-     provider: "{{ f5_provider }}"
-     name: 	vcc-25.eu:8443
-     host: "{{ 6.6.6.25 }}"
+    - name: disable pool members
+      bigip_pool_member:
+        provider: "{{ f5_provider }}"
+        host: "{{ item.host }}"
+        name: "{{ item.name }}"
+        partition: "common"
+        pool: adel1-common-8443-pool
+        port: 8443
+        state: forced_offline 
+      with_items:
+         - host: 6.6.6.25
+           name: vcc-25.eu
+         - host: 6.6.6.26
+           name: vcc-26.eu
      
         
