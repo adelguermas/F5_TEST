@@ -1,0 +1,28 @@
+---
+- name:  disable   pool members   at adel1-common-8443-pool at common 
+  hosts: all
+  connection: local
+
+  vars:
+    f5_provider:
+      password: "vish123"
+      user: "vish"
+      server: "{{ ansible_host }}"
+      validate_certs: no
+      server_port: 443
+  
+  
+  tasks:
+  - name: Disable pool member
+    bigip_pool:
+     state: forced_offline
+     pool: adel1-common-8443-pool
+     partition: "common"
+     provider: "{{ f5_provider }}"
+     host: "{{ item.host }}"
+     name: "{{ item.name }}"
+     with_items:
+      - host: 6.6.6.25
+        name: vcc-25.eu
+      - host: 6.6.6.26
+        name: vcc-26.eu
