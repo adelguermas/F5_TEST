@@ -1,34 +1,23 @@
 ---
-- name:  create  pool at common 
+- name:  create  pool adel-common-443-pool at common
   hosts: all
   connection: local
 
-  vars:
+ vars:
     f5_provider:
       password: "vish123"
       user: "vish"
       server: "{{ ansible_host }}"
       validate_certs: no
       server_port: 443
+  
+  
   tasks:
-    - name: add members to the above created pool
-      bigip_pool_member:
-       provider: "{{ f5_provider }}"
-       description: "webserver {{ item.name }}"
-       host: "{{ item.host }}"
-       name: "{{ item.name }}"
-       partition: "common"
-       pool: adel-VCC1-443-pool
-       port: 443
-      with_items:
-       - host: 6.6.6.25
-         name: vcc-25.eu
-       - host: 6.6.6.26
-         name: vcc-26.eu
-       - host: 6.6.6.27
-         name: vcc-27.eu
-       - host: 6.6.6.28
-         name: vcc-28.eu
-       - host: 6.6.6.29
-         name: vcc-29.eu
-       - host: 6.6.6.30
+  - name: create a pool
+    bigip_pool:
+      provider: "{{ f5_provider }}"
+      description: "this is adel-common-443-pool"
+      partition: common
+      lb_method: round-robin
+      pool: adel1-common-8443-pool
+      state: present
