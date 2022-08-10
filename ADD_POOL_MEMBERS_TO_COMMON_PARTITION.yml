@@ -1,5 +1,5 @@
 ---
-- name:  add  pool members to adel-common-8443-pool at common 
+- name:  add  pool members to adel1-common-8443-pool at common 
   hosts: all
   connection: local
 
@@ -18,7 +18,7 @@
        host: "{{ item.host }}"
        name: "{{ item.name }}"
        partition: "common"
-       pool: adel-common-8443-pool
+       pool: adel1-common-8443-pool
        port: 8443
       with_items:
        - host: 6.6.6.25
